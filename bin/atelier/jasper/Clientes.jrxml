@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Clientes" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f1ff9e67-a04a-4b9b-b187-21850f29ef4d">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="ALEATORIO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[nombre]]></fieldDescription>
+	</field>
+	<field name="apellido" class="java.lang.String">
+		<fieldDescription><![CDATA[apellido]]></fieldDescription>
+	</field>
+	<field name="docIdentidad" class="java.lang.String">
+		<fieldDescription><![CDATA[docIdentidad]]></fieldDescription>
+	</field>
+	<field name="telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[telefono]]></fieldDescription>
+	</field>
+	<field name="diferencia" class="java.lang.Double">
+		<fieldDescription><![CDATA[diferencia]]></fieldDescription>
+	</field>
+	<field name="deudas" class="java.lang.Double">
+		<fieldDescription><![CDATA[deudas]]></fieldDescription>
+	</field>
+	<field name="pagos" class="java.lang.Double">
+		<fieldDescription><![CDATA[pagos]]></fieldDescription>
+	</field>
+	<variable name="nombre1" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{nombre}]]></variableExpression>
+	</variable>
+	<variable name="diferencia1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{diferencia}]]></variableExpression>
+	</variable>
+	<variable name="deudas1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{deudas}]]></variableExpression>
+	</variable>
+	<variable name="pagos1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{pagos}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="15" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="111" height="15" uuid="b1752cf8-14ac-499b-8f16-fd0958a8abf4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2b9df237-bfe5-4920-96f9-c7202e4446e0"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="111" y="0" width="111" height="15" uuid="c8522fee-c386-4a18-b7f2-a9fc1b63bbc0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bf40b19d-cd74-47f2-afc6-9cb8c352007f"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="222" y="0" width="111" height="15" uuid="02c1363f-7c78-409f-9ca5-4199b8415586">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9854ceeb-1583-4109-b7a2-edd50543273b"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[docIdentidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="333" y="0" width="111" height="15" uuid="e7ded9bf-47f6-433b-8a4a-0c54d8979f94">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c41b4c30-6b67-4f92-b855-f9b045426d7e"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[telefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="444" y="0" width="111" height="15" uuid="4dc6706c-6607-481a-9b07-6210987a126b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5649be7f-719c-4c3f-9a00-428ff6a54c4b"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[diferencia]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="111" height="15" uuid="59610172-88be-4705-8d7f-c60b063668b8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2b9df237-bfe5-4920-96f9-c7202e4446e0"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="0" width="111" height="15" uuid="787304b5-5d3c-451a-8ec7-b87c92e4cc7b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bf40b19d-cd74-47f2-afc6-9cb8c352007f"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="222" y="0" width="111" height="15" uuid="573ce5d1-804d-4239-b200-66850f5acb4b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9854ceeb-1583-4109-b7a2-edd50543273b"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{docIdentidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="333" y="0" width="111" height="15" uuid="79caaac9-d8de-425b-901e-b0d037a55ba1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c41b4c30-6b67-4f92-b855-f9b045426d7e"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.###;(-#,##0.###)">
+				<reportElement x="444" y="0" width="111" height="15" uuid="d20bc469-6914-4abd-beb0-278d85a94091">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5649be7f-719c-4c3f-9a00-428ff6a54c4b"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{diferencia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="30">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="30" uuid="1c600466-5357-4f86-b557-39a39f3d0dfd"/>
+				<textFieldExpression><![CDATA[$P{ALEATORIO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="278" height="30" uuid="e5637d18-8112-40be-b7d8-63d9714072c0"/>
+				<textFieldExpression><![CDATA["Cant. Paciente con Deuda "+$V{nombre1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.###;(-#,##0.###)">
+				<reportElement x="278" y="0" width="277" height="30" uuid="5337823c-e98c-4f55-b11e-3d090dd36a51"/>
+				<textFieldExpression><![CDATA[$V{diferencia1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

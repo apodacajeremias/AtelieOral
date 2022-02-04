@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Recetas" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="704ef180-69ac-41f7-a7bd-65c38e5e2549">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="AtelierOralDataAdapter"/>
+	<subDataset name="Dataset1" uuid="10d73683-ef18-452d-a21a-9c2fe4b60b56">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="dias" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="dias"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="recetariodetalle"/>
+		</field>
+		<field name="horas" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="horas"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="recetariodetalle"/>
+		</field>
+		<field name="medicamento.nombreComercial" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="nombrecomercial"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="medicamento"/>
+		</field>
+		<field name="medicamento.tipoMedicamento" class="java.lang.String"/>
+		<field name="medicamento.informacion" class="java.lang.String"/>
+		<variable name="medicamento.nombreComercial1" class="java.lang.Integer" calculation="Count">
+			<variableExpression><![CDATA[$F{medicamento.nombreComercial}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<parameter name="TITULAR_EMPRESA" class="java.lang.String"/>
+	<parameter name="NOMBRE_EMPRESA" class="java.lang.String"/>
+	<parameter name="REGISTRO_PROFESIONAL" class="java.lang.String"/>
+	<parameter name="REGISTRO_UNICO" class="java.lang.String"/>
+	<parameter name="CEDULA_TITULAR" class="java.lang.String"/>
+	<parameter name="CONTACTO_EMPRESA" class="java.lang.String"/>
+	<parameter name="UBICACION_EMPRESA" class="java.lang.String"/>
+	<parameter name="LOGO_EMPRESA" class="java.io.InputStream"/>
+	<parameter name="TEXTO_CONVENIO" class="java.lang.String"/>
+	<parameter name="TITULAR_EMPRESA_M" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT fechareceta, r.observacion, dias, horas, nombre, apellido, docidentidad, fechanac, edad, sexo, m.nombrecomercial
+FROM recetario r
+INNER JOIN recetariodetalle d ON r.id = d.recetario_id
+INNER JOIN medicamento m ON m.id = d.medicamento_id
+INNER JOIN paciente p ON p.id = r.paciente_id]]>
+	</queryString>
+	<field name="fechaReceta" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="fechareceta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="recetario"/>
+	</field>
+	<field name="observacion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="observacion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="recetario"/>
+	</field>
+	<field name="paciente.nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="paciente"/>
+	</field>
+	<field name="paciente.apellido" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="apellido"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="paciente"/>
+	</field>
+	<field name="paciente.docIdentidad" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="docidentidad"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="paciente"/>
+	</field>
+	<field name="paciente.fechaNac" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="fechanac"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="paciente"/>
+	</field>
+	<field name="paciente.edad" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="edad"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="paciente"/>
+	</field>
+	<field name="paciente.sexo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="sexo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="paciente"/>
+	</field>
+	<field name="detalle" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="125" splitType="Stretch">
+			<frame>
+				<reportElement x="10" y="0" width="395" height="125" uuid="06c589e2-fee2-4f85-aef7-ac932041862e"/>
+				<image hAlign="Center" vAlign="Middle">
+					<reportElement x="0" y="0" width="125" height="125" uuid="7971317a-b843-49fb-8598-f848b7599976">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<imageExpression><![CDATA[$P{LOGO_EMPRESA}]]></imageExpression>
+				</image>
+				<frame>
+					<reportElement x="130" y="12" width="265" height="100" uuid="031a04bb-0229-48ce-9d2e-238c5dc923dd"/>
+					<textField>
+						<reportElement x="0" y="80" width="175" height="20" uuid="bf21d94c-c427-4571-a7b9-88c6722d0c62">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<textElement>
+							<font fontName="Arial" size="12"/>
+						</textElement>
+						<textFieldExpression><![CDATA["Tel.: "+$P{CONTACTO_EMPRESA}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="60" width="175" height="20" uuid="d30f6482-d1f6-4753-9ac8-931ebe5a2235">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<textElement>
+							<font fontName="Arial" size="12"/>
+						</textElement>
+						<textFieldExpression><![CDATA["RUC: "+$P{REGISTRO_UNICO}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="20" width="265" height="20" uuid="694e9ce8-bf9a-4746-a64a-5b620d5130e1">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<textElement>
+							<font fontName="Arial" size="12"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{TITULAR_EMPRESA}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="0" width="265" height="20" uuid="bd81af8e-7183-4563-b305-e932fb0ab714">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None">
+							<font fontName="Arial" size="13" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{NOMBRE_EMPRESA}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="40" width="175" height="20" uuid="fcfcbcc1-7c9c-4717-930b-278d12943309">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<textElement>
+							<font fontName="Arial" size="12"/>
+						</textElement>
+						<textFieldExpression><![CDATA["Reg.: "+$P{REGISTRO_PROFESIONAL}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="128" splitType="Stretch">
+			<staticText>
+				<reportElement x="215" y="8" width="124" height="20" uuid="b885796c-2341-44af-b290-24df8d8813a3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="13" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[RECETA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="28" width="555" height="20" uuid="33a085f3-dba9-466a-ae58-326a52754667">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Justified">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Paciente: "+$F{paciente.nombre}+" "+$F{paciente.apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="48" width="380" height="20" uuid="29220700-ded0-4477-b4f8-1bb62a14b80d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Justified">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Cédula: "+$F{paciente.docIdentidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="68" width="380" height="20" uuid="f22496b2-4135-48ee-be14-9762afb412ad">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Justified">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Fecha Nac.: "+$F{paciente.fechaNac}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="88" width="380" height="20" uuid="0e3669e7-2665-49f0-82ba-2422377062cd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Justified">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Sexo: "+$F{paciente.sexo}+" Edad: "+$F{paciente.edad}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMM, yyyy">
+				<reportElement x="0" y="108" width="150" height="20" uuid="0de50198-ec17-4bc2-863c-54afc7feccd3">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="15" width="200" height="15" uuid="71c73b32-12c9-4832-9554-2e4470f0f7d5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b95c2220-d4db-4314-9517-1e6c28bc8f4f"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Arial Narrow" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Medicamento prescripto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="218" y="15" width="200" height="15" uuid="bdf62187-c563-4597-9e77-bd11555478d7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ace1fdb3-04c3-428c-a6c2-9cd2e7bf0212"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Arial Narrow" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="436" y="15" width="50" height="15" uuid="b818fade-c49d-427f-848d-d0ac71ff8345">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4b9322d0-d4af-4709-87a5-e5346d20b408"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Arial Narrow" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cada/hora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="505" y="15" width="50" height="15" uuid="6c1e480c-efa6-4717-a866-85a7517227d9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="822f866a-6e4b-46e6-b702-efb876b64dac"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Arial Narrow" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Por/días]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<componentElement>
+				<reportElement x="0" y="4" width="555" height="30" uuid="7e385a25-a825-48e0-9432-9874499fcfb6">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="Dataset1" uuid="066367f3-5270-4416-bc3a-13b1a1fd757e">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{detalle})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="30" width="555">
+						<line>
+							<reportElement x="0" y="29" width="555" height="1" uuid="981c8c5a-1a1c-49cf-9353-90ca21262ebf">
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							</reportElement>
+							<graphicElement>
+								<pen lineWidth="0.4"/>
+							</graphicElement>
+						</line>
+						<textField>
+							<reportElement x="505" y="0" width="50" height="15" uuid="9f76f61f-07d7-4264-bda9-06b9836d8468">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							</reportElement>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="Arial Narrow" size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{dias}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="436" y="0" width="50" height="15" uuid="b185acc1-a0cb-463d-80bb-ad2a9b1c111b">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="Arial Narrow" size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{horas}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="0" width="200" height="15" uuid="0fb666ca-6541-4d88-9d5e-6f56a168be2b">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Arial Narrow" size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{medicamento.nombreComercial}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="218" y="0" width="200" height="15" uuid="7f41c452-531d-4159-8105-2569a8d32360">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Arial Narrow" size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{medicamento.tipoMedicamento}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="15" width="555" height="14" uuid="11efd528-071f-4b5c-a990-2e51f14c9f0c">
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							</reportElement>
+							<textElement verticalAlignment="Middle" rotation="None">
+								<font fontName="Arial Narrow" size="11"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{medicamento.informacion}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="98" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="20" width="250" height="40" uuid="93abbdf9-ba17-4293-b803-d8cbcc48d6bf">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Firma .....................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="250" y="20" width="305" height="40" uuid="bbbd09a1-493f-4a0a-9e33-ec6b14f899e3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Aclaración ....................................................................]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
